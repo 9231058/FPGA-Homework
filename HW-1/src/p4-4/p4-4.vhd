@@ -23,7 +23,7 @@ begin
 	cout <= C(N);
 
 	carry: for I in 1 to N generate
-		C(I) <= G(I - 1) or P(I - 1) and C(I - 1);
+		C(I) <= G(I - 1) or (P(I - 1) and C(I - 1));
 	end generate carry;
 
 	p_and_g: for I in 0 to N - 1 generate
