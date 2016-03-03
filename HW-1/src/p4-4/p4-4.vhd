@@ -30,4 +30,8 @@ begin
 		P(I) <= a(I) xor b(I);
 		G(I) <= a(I) and b(I);
 	end generate p_and_g;
+	
+	sum: for I in 0 to N - 1 generate
+		s(I) = a(I) xor b(I) xor C(I);
+	end generate sum;
 end architecture structural;
