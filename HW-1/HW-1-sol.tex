@@ -27,6 +27,8 @@
 
 \usepackage{minted}
 
+\usepackage{graphicx}
+
 \usepackage{sectsty} % Allows customizing section commands
 \allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
 
@@ -69,6 +71,21 @@
 
 \maketitle
 
+%------- P3
+
+\section{Problem 3}
+Modelsim Simulation Results:\\
+
+\includegraphics[width=12cm]{src/p3/wave-1.bmp}\\
+\includegraphics[width=12cm]{src/p3/wave-2.bmp}\\
+\includegraphics[width=12cm]{src/p3/wave-3.bmp}\\
+
+Vivado Synthesis Results:\\
+
+\includegraphics[height=12cm]{src/p3/schematic.png}\\
+
+\textit{In vivado synthesis we have errors for multi deriven signals.}
+
 %------- P4
 
 \section{Problem 4}
@@ -84,6 +101,7 @@
 \inputminted{vhdl}{src/p4-5/p4-5.vhd}
 
 %------- P5
+
 \section{Problem 5}
 \subsection{Part 1}
 \begin{center}
