@@ -7,13 +7,13 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity 4_bit_comparator is
+entity four_bit_comparator is
 	port (a, b : in std_logic_vector(3 downto 0);
 		l, g, e : in std_logic;
 		eq, gt, lt : out std_logic);
-end entity 4_bit_comparator;
+end entity four_bit_comparator;
 
-architecture structural of 4_bit_comparator is
+architecture structural of four_bit_comparator is
 	signal a0_b0_eq, a0_b0_gt, a0_b0_lt : std_logic;
 	signal a1_b1_eq, a1_b1_gt, a1_b1_lt : std_logic;
 	signal a2_b2_eq, a2_b2_gt, a2_b2_lt : std_logic;
