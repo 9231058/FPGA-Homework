@@ -25,7 +25,7 @@
 \usepackage[english]{babel} % English language/hyphenation
 \usepackage{amsmath,amsfonts,amsthm} % Math packages
 
-\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{minted}
 
 \usepackage{sectsty} % Allows customizing section commands
 \allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
@@ -61,88 +61,25 @@
 \horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
 }
 
-\author{Parham Alvani (9231058)} % Your name
+\author{Parham Alvani (9231058)}
 
-\date{\normalsize\today} % Today's date or a custom date
+\date{\normalsize\today}
 
 \begin{document}
 
-\maketitle % Print the title
+\maketitle
 
-%----------------------------------------------------------------------------------------
-%	PROBLEM 1
-%----------------------------------------------------------------------------------------
+\section{Problem 4}
+\subsection{Part 1}
+\inputminted{vhdl}{src/p4-1-2/p4-1.vhd}
+\subsection{Part 2}
+\inputminted{vhdl}{src/p4-1-2/p4-2.vhd}
+\subsection{Part 3}
+\inputminted{vhdl}{src/p4-3/p4-3.vhd}
+\subsection{Part 4}
+\inputminted{vhdl}{src/p4-4/p4-4.vhd}
+\subsection{Part 5}
+\inputminted{vhdl}{src/p4-5/p4-5.vhd}
 
-\section{Problem title}
-
-\lipsum[2] % Dummy text
-
-\begin{align} 
-\begin{split}
-(x+y)^3 	&= (x+y)^2(x+y)\\
-&=(x^2+2xy+y^2)(x+y)\\
-&=(x^3+2x^2y+xy^2) + (x^2y+2xy^2+y^3)\\
-&=x^3+3x^2y+3xy^2+y^3
-\end{split}					
-\end{align}
-
-Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies
-
-%------------------------------------------------
-
-\subsection{Heading on level 2 (subsection)}
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-\begin{align}
-A = 
-\begin{bmatrix}
-A_{11} & A_{21} \\
-A_{21} & A_{22}
-\end{bmatrix}
-\end{align}
-Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-
-%------------------------------------------------
-
-\subsubsection{Heading on level 3 (subsubsection)}
-
-\lipsum[3] % Dummy text
-
-\paragraph{Heading on level 4 (paragraph)}
-
-\lipsum[6] % Dummy text
-
-%----------------------------------------------------------------------------------------
-%	PROBLEM 2
-%----------------------------------------------------------------------------------------
-
-\section{Lists}
-
-%------------------------------------------------
-
-\subsection{Example of list (3*itemize)}
-\begin{itemize}
-	\item First item in a list 
-		\begin{itemize}
-		\item First item in a list 
-			\begin{itemize}
-			\item First item in a list 
-			\item Second item in a list 
-			\end{itemize}
-		\item Second item in a list 
-		\end{itemize}
-	\item Second item in a list 
-\end{itemize}
-
-%------------------------------------------------
-
-\subsection{Example of list (enumerate)}
-\begin{enumerate}
-\item First item in a list 
-\item Second item in a list 
-\item Third item in a list
-\end{enumerate}
-
-%----------------------------------------------------------------------------------------
 
 \end{document}
