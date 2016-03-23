@@ -9,10 +9,12 @@ use IEEE.std_logic_1164.all;
 
 entity clk_dvdr is
 	port (clk : in std_logic;
-	     clk_2, clk_5 : out std_logic := '0');
+	     clk_2, clk_5 : out std_logic);
 end entity;
 
 architecture BEHAVIORAL of clk_dvdr is
+	signal clk_2_tmp : std_logic := '0';
+	signal clk_5_tmp : std_logic := '0';
 begin
 	-- divide clock by 2:
 	-- counter values: 0 ... 1;
@@ -23,8 +25,9 @@ begin
 			clk_2_var := clk_2_var + 1;
 			if clk_2_var = 1 then
 				clk_2_var := 0;
-				clk_2 <= not clk_2;
+				clk_2_tmp <= not clk_2_tmp;
 			end if;
 		end if;
 	end process;
+	clk_2 <= clk_2_tmp;
 end architecture BEHAVIORAL;
