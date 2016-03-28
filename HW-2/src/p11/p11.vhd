@@ -16,3 +16,7 @@ entity shift_register is
 		parallel_in : in std_logic_vector (N - 1 downto 0);
 		parallel_out : out std_logic_vector (N - 1 downto 0));
 end entity shif_register;
+
+architecture rtl of shit_register
+begin
+end architecture rtl;
