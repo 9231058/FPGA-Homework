@@ -29,5 +29,28 @@ begin
 			end if;
 		end if;
 	end process;
+
+	-- divide clock by 5:
+	-- counter values: 0 ... 3; toggle: true;
+	-- counter values: 0 ... 2; toggle: false;
+	process (clk)
+		variable clk_5_var : integer := 0;
+		variable clk_5_toggle : boolean := false;
+	begin
+		if clk'event then
+			clk_5_var := clk_5_var + 1;
+			if clk_5_var = 3 and clk_5_toggle then
+				clk_5_var := 0;
+				clk_5_tmp <= not clk_5_tmp;
+				clk_5_toggle := not clk_5_toggle;
+			elsif clk_5_var = 2 and not clk_5_toggle then
+				clk_5_var := 0;
+				clk_5_tmp <= not clk_5_tmp;
+				clk_5_toggle := not clk_5_toggle;
+			end if;
+		end if;
+	end process;
+			
 	clk_2 <= clk_2_tmp;
+	clk_5 <= clk_5_tmp;
 end architecture BEHAVIORAL;
