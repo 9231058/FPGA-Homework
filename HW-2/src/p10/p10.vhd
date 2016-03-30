@@ -20,8 +20,8 @@ architecture rtl of squart is
 	signal result : std_logic_vector (N - 1 downto 0);
 	signal mask : std_logic_vector (N - 1 downto 0);
 begin
-	process(clk, data_in)
-		variable data_buff : std_logic_vector(N - 1 downto 0);
+	process (clk, data_in)
+		variable data_buff : std_logic_vector (N - 1 downto 0);
 	begin
 		if data_in'event then
 			data_buff := data_in;
