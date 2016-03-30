@@ -18,7 +18,7 @@ end entity memory;
 architecture behavioral of memory is
 	type mem is array (natural range <>, natural range <>) of std_logic;
 begin
-	process (cs, rwbar, address, data_in, inc, dec)
+	process (cs, rwbar, address, data_in)
 		constant memsize : integer := 2 ** address'length;
 		variable memory : mem (0 to memsize - 1, data_in'range);
 	begin
