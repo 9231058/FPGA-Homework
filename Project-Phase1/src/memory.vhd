@@ -12,7 +12,7 @@ entity memory is
 	port (address : in std_logic_vector;
 		data_in : in std_logic_vector;
 		data_out : out std_logic_vector;
-		cs, rwbar, inc, dec : in std_logic);
+		cs, rwbar : in std_logic);
 end entity memory;
 
 architecture behavioral of memory is
@@ -27,10 +27,6 @@ begin
 				for i in data_out'range loop
 					data_out(i) <= memory (to_integer(unsigned(address)), i);
 				end loop;
-			elsif inc = '1' then
-				memory (to_integer(unsigned(address))) := std_logic_vector(unsigned(memory (to_integer(unsigned(address)))) + 1);
-			elsif dec = '1' then
-				memory (to_integer(unsigned(address))) := memory (to_integer(unsigned(address))) - 1;
 			else -- Writing :)
 				for i in data_in'range loop
 					memory (to_integer(unsigned(address)), i) := data_in (i);
