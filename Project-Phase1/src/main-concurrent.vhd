@@ -6,6 +6,7 @@
 --------------------------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
 entity main_concurrent is
 	port (c1, c2 : in character;
@@ -14,7 +15,7 @@ end entity main_concurrent;
 
 architecture rtl of main_concurrent is
 begin
-	process (c)
+	process (c1, c2)
 	begin
 		if c1 = ' ' then
 			a <= "11010"; -- a = 26
