@@ -25,9 +25,8 @@
 \usepackage[english]{babel} % English language/hyphenation
 \usepackage{amsmath,amsfonts,amsthm} % Math packages
 
-\usepackage{minted}
-
-\usepackage{graphicx}
+\usepackage{minted} % Allows to put our code :)
+\usepackage[usenames, dvipsnames]{color} % Allows to have color :)
 
 \usepackage{sectsty} % Allows customizing section commands
 \allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
@@ -84,10 +83,29 @@
 %------- P4
 
 \section{Problem 4}
+\begin{itemize}
+	\item Variables
+		\begin{itemize}
+			\item Provide convenient mechanism for local storage
+			\item Scope is process in which they are declared
+			\item All variable assignments take place immediately
+		\end{itemize}
+	\item Signals
+		\begin{itemize}
+			\item Used for communication between VHDL components
+			\item Real, physical signals in system often mapped to VHDL signals
+			\item ALL VHDL signal assignments require either delta cycle or
+				user-specified delay before new value is assumed
+		\end{itemize}
+\end{itemize}
 
 %------- P5
 
 \section{Problem 5}
+A VHDL entity can have different VHDL architectures.
+You can select the correct binding between \textcolor{BurntOrange}{entity}
+and \textcolor{BurntOrange}{achitecture} with the \textcolor{BurntOrange}{configuration}.
+The entity is describing the inputs and outputs.
 
 %------- P6
 
