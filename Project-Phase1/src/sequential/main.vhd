@@ -8,7 +8,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity main is
-	port (str : in string (1 to 150);
+	port (str : in string (1 to 120);
 		clk, reset : in std_logic);
 end entity;
 
