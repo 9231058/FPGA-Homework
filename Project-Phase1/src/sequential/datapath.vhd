@@ -4,7 +4,7 @@
 -- Create Date:   23-04-2016
 -- Module Name:   datapath.vhd
 --------------------------------------------------------------------------------
-library IEEE:
+library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity datapath is
