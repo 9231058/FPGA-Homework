@@ -46,7 +46,7 @@ begin
 		end if;
 	end process;
 	-- next_state
-	process (current_state, fitness_done)
+	process (current_state)
 		variable I : integer := 1;
 	begin
 		if current_state = rst then
