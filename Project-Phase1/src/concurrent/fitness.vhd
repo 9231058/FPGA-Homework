@@ -8,12 +8,12 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity main_concurrent is
+entity fitness is
 	port (c1, c2 : in character;
 		a, b : out std_logic_vector (4 downto 0));
-end entity main_concurrent;
+end entity fitness;
 
-architecture rtl of main_concurrent is
+architecture rtl of fitness is
 begin
 	process (c1, c2)
 	begin
