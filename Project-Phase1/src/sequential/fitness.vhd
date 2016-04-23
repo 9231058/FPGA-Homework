@@ -2,20 +2,20 @@
 -- Author:        Parham Alvani (parham.alvani@gmail.com)
 --
 -- Create Date:   31-03-2016
--- Module Name:   fitness-sequential.vhd
+-- Module Name:   fitness.vhd
 --------------------------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity fitness_sequential is
+entity fitness is
 	port (s : in string (1 to 120);
 		clk, reset : in std_logic;
 		a, b : out std_logic_vector (4 downto 0);
 		done : out std_logic);
-end entity fitness_sequential;
+end entity fitness;
 
-architecture rtl of fitness_sequential is
+architecture rtl of fitness is
 begin
 	process (clk)
 		variable I : integer := 1;
