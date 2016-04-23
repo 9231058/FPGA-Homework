@@ -34,15 +34,12 @@ begin
 	begin
 		if current_state = rst then
 			I := (0 => '1', others => '0');
-			fitness_reset <= '1';
-			fitness_clk <= '0';
 			memory_en <= '0';
 		elsif current_state = fitness_process then
 			memory_en <= '0';
 		elsif current_state = memory_read then
 			sel <= I;
 			memory_rwbar <= '1';
-			fitness_clk <= '0';
 		elsif current_state = memory_write then
 			memory_rwbar <= '0';
 			I := I + 1;
