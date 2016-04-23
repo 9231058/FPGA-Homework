@@ -16,7 +16,7 @@ end entity datapath;
 
 architecture rtl of datapath is
 	component fulladdr
-		port(a, b : in std_logic_vector(3 downto 0);
+		port (a, b : in std_logic_vector(3 downto 0);
 			c_in : in std_logic;
 			c_out : out std_logic;
 			sum : out std_logic_vector(3 downto 0));
