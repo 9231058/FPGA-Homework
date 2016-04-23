@@ -49,7 +49,7 @@ begin
 		end if;
 	end process;
 	-- next_state
-	process (current_state, fitness_done)
+	process (current_state)
 	begin
 		if current_state = rst then
 			next_state <= fitness_process;
