@@ -9,8 +9,7 @@ use IEEE.std_logic_1164.all;
 
 entity controller is
 	port (clk, reset : in std_logic;
-		fitness_reset, fitness_clk : out std_logic;
-		fitness_done : in std_logic;
+		sel : out std_logic_vector(7 downto 0);
 		memory_rwbar, memory_en : out std_logic);
 end entity controller;
 
@@ -31,10 +30,10 @@ begin
 	end process;
 	-- outputs
 	process (current_state)
-		variable I : integer := 1;
+		variable I : std_logic_vector(7 downto 0) := (0 => '1', others => '0');
 	begin
 		if current_state = rst then
-			I := 1;
+			I := (0 => '1', others => '0');
 			fitness_reset <= '1';
 			fitness_clk <= '0';
 			memory_en <= '0';
