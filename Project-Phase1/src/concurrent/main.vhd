@@ -24,7 +24,7 @@ architecture rtl of main is
 			sel : out std_logic_vector (7 downto 0);
 			memory_rwbar, memory_en : out std_logic);
 	end component;
-	
+
 	for all:datapath use entity work.datapath;
 	for all:controller use entity work.controller;
 
