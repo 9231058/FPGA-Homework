@@ -12,7 +12,7 @@ entity shift_register is
 	port (data_in : in std_logic_vector (N - 1 downto 0);
 		load, clk : in std_logic;
 		data_out : out std_logic);
-end entity;
+end entity shitf_register;
 
 architecture rtl of shift_register is
 	signal reg : std_logic_vector (N - 1 downto 0);
