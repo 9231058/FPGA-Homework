@@ -5,7 +5,7 @@
 -- Module Name:   parity-generator.vhd
 --------------------------------------------------------------------------------
 library IEEE;
-use IEEE.std_logic_1164;
+use IEEE.std_logic_1164.all;
 
 entity parity_generator is
 	port (w, clk, reset : in std_logic;
@@ -20,7 +20,7 @@ begin
 	begin
 		if clk'event and clk = '1' then
 			if reset = '1' then
-				current_state = even;
+				current_state <= even;
 			else
 				current_state <= next_state;
 			end if;
@@ -31,15 +31,15 @@ begin
 	begin
 		if current_state = even then
 			if w = '1' then
-				next_state = odd;
+				next_state <= odd;
 			else
-				next_state = even;
+				next_state <= even;
 			end if;
 		else
 			if w = '1' then
-				next_state = even;
+				next_state <= even;
 			else
-				next_state = odd;
+				next_state <= odd;
 			end if;
 		end if;
 	end process;
