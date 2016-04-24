@@ -25,8 +25,12 @@ begin
 				reg <= data_in;
 				I := 0;
 			else
-				data_out <= reg(I);
-				I := I + 1;
+				if I < N then
+					data_out <= reg(I);
+					I := I + 1;
+				else
+					I := 0;
+				end if;
 			end if;
 		end if;
 	end process;
