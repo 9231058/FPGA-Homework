@@ -11,7 +11,7 @@ use IEEE.std_logic_unsigned.all;
 entity controller is
 	port (clk, reset : in std_logic;
 		sel : out std_logic_vector(7 downto 0);
-		memory_rwbar, memory_en : out std_logic);
+		memory_rwbar, memory_en, memory_reset : out std_logic);
 end entity controller;
 
 architecture rtl of controller is
@@ -35,8 +35,10 @@ begin
 	begin
 		if current_state = rst then
 			I := (0 => '1', others => '0');
+			memory_reset <= '1';
 			memory_en <= '0';
 		elsif current_state = fitness_process then
+			memory_reset <= '0';
 			memory_en <= '0';
 		elsif current_state = memory_read then
 			sel <= I;
