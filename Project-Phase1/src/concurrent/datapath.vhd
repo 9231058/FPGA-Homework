@@ -49,5 +49,5 @@ begin
 	fits: for I in 1 to 119 generate
 		fit:fitness port map (str(I), str(I + 1), a(I), b(I));
 	end generate;
-	address <= a(to_integer(unsigned(sel))) & b(to_integer(unsigned(sel)));
+	address <= a(to_integer(unsigned(sel))) & b(to_integer(unsigned(sel))) when memory_en = '1' else (others => '0');
 end architecture rtl;
