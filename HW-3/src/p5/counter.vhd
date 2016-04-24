@@ -12,7 +12,7 @@ entity counter is
 	generic (N : integer := 4);
 	port (clk, reset : in std_logic;
 		count : out std_logic_vector (N - 1 downto 0));
-end entity;
+end entity counter;
 
 architecture behavioral of counter is
 begin
