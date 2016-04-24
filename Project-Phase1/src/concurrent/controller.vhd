@@ -42,6 +42,7 @@ begin
 			memory_en <= '0';
 		elsif current_state = memory_read then
 			sel <= I;
+			memory_en <= '1';
 			memory_rwbar <= '1';
 		elsif current_state = memory_write then
 			memory_rwbar <= '0';
