@@ -32,13 +32,13 @@ architecture rtl of main is
 
 	for all:counter use entity work.counter;
 	for all:parity_generator use entity work.parity_generator;
-	for all:shift_register use work.shift_register;
+	for all:shift_register use entity work.shift_register;
 
 	signal w, p : std_logic;
 	signal c : std_logic_vector(2 downto 0);
 begin
-	sr:shit_register port map (b, load, clk, w) generic map (8);
+	sr:shift_register generic map (8) port map (b, load, clk, w);
 	pg:parity_generator port map (w, clk, load, p);
-	cn:counter port map (clk, load, c) generic map (3);
+	cn:counter generic map (3) port map (clk, load, c);
 	serial <= p when c = "111" else w;
 end architecture rtl;
