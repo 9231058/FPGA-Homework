@@ -12,7 +12,7 @@ entity datapath is
 		str : in string (1 to 120);
 		fitness_clk, fitness_reset : in std_logic;
 		fitness_done : out std_logic;
-		memory_en, memory_rwbar : in std_logic);
+		memory_en, memory_rwbar, memory_reset : in std_logic);
 end entity datapath;
 
 architecture rtl of datapath is
@@ -26,7 +26,7 @@ architecture rtl of datapath is
 		port (address : in std_logic_vector;
 			data_in : in std_logic_vector;
 			data_out : out std_logic_vector;
-			clk, rwbar, en : in std_logic);
+			clk, rwbar, en, reset : in std_logic);
 	end component;
 	component fitness
 		port (s : in string (1 to 120);
@@ -45,7 +45,7 @@ architecture rtl of datapath is
 	signal address : std_logic_vector(9 downto 0);
 begin
 	fa:fulladdr port map (data_out, "0001", '0', c_out, data_in);
-	mem:memory port map (address, data_in, data_out, clk, memory_rwbar, memory_en);
+	mem:memory port map (address, data_in, data_out, clk, memory_rwbar, memory_en, memory_reset);
 	fit:fitness port map (str, fitness_clk, fitness_reset, a, b, fitness_done);
 	address <= a & b;
 end architecture rtl;

@@ -12,7 +12,7 @@ entity memory is
 	port (address : in std_logic_vector;
 		data_in : in std_logic_vector;
 		data_out : out std_logic_vector;
-		clk, rwbar, en : in std_logic);
+		clk, rwbar, en, reset : in std_logic);
 end entity memory;
 
 architecture behavioral of memory is
@@ -23,7 +23,13 @@ begin
 		variable memory : mem (0 to memsize - 1, data_in'range);
 	begin
 		if  clk'event and clk = '1' then
-			if rwbar = '1' and en = '1' then -- Readiing :)
+			if reset = '1' then -- Reseting :D
+				for I in 0 to memsize - 1 loop
+					for J in data_in'range loop
+						memory(I, J) := '0';
+					end loop;
+				end loop;
+			elsif rwbar = '1' and en = '1' then -- Readiing :)
 				for i in data_out'range loop
 					data_out(i) <= memory (to_integer(unsigned(address)), i);
 				end loop;

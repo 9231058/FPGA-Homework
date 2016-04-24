@@ -11,7 +11,7 @@ entity controller is
 	port (clk, reset : in std_logic;
 		fitness_reset, fitness_clk : out std_logic;
 		fitness_done : in std_logic;
-		memory_rwbar, memory_en : out std_logic);
+		memory_rwbar, memory_en, memory_reset : out std_logic);
 end entity controller;
 
 architecture rtl of controller is
@@ -35,11 +35,13 @@ begin
 		if current_state = rst then
 			fitness_reset <= '1';
 			fitness_clk <= '0';
+			memory_reset <= '1';
 			memory_en <= '0';
 		elsif current_state = fitness_process then
 			if fitness_done = '0' then
 				fitness_clk <= '1';
 			end if;
+			memory_reset <= '0';
 			memory_en <= '0';
 		elsif current_state = memory_read then
 			memory_rwbar <= '1';
