@@ -10,7 +10,7 @@ use IEEE.std_logic_unsigned.all;
 
 entity fulladdr is
 	port(a, b : in std_logic_vector(3 downto 0);
-	     	c_in : in std_logic;
+		c_in : in std_logic;
 		c_out : out std_logic;
 		sum : out std_logic_vector(3 downto 0));
 end entity fulladdr;
