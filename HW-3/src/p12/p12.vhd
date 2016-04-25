@@ -15,16 +15,14 @@ end entity;
 
 architecture rtl of drawstring is
 	type state is (led1, led2, led3, led4, led5, led6, led7, led8, led9);
-	signal current_state, next_state : state;
+	signal current_state, next_state : state := led5;
 begin
-	process (clk)
+	process (clk, reset)
 	begin
-		if clk'event and clk = '1' then
-			if reset = '1' then
-				current_state <= led5;
-			else
-				current_state <= next_state;
-			end if;
+		if reset = '1' then
+			current_state <= led5;
+		elsif clk'event and clk = '1' then
+			current_state <= next_state;
 		end if;
 	end process;
 

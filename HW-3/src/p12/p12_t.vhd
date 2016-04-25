@@ -26,7 +26,7 @@ begin
 	reset <= '1', '0' after 50 ns;
 	clk <= not clk after 50 ns;
 
-	p1 <= '1', '0' after 110 ns, '1' after 220 ns;
+	p1 <= '1' after 50 ns, '0' after 110 ns, '1' after 220 ns;
 	p2 <= '0', '1' after 55 ns, '0' after 65 ns;
 
 	m : drawstring port map (p1, p2, clk, reset, led);
