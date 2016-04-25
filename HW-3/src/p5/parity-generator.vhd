@@ -31,25 +31,20 @@ begin
 	begin
 		if current_state = even then
 			if w = '1' then
+				p <= '1';
 				next_state <= odd;
 			else
+				p <= '0';
 				next_state <= even;
 			end if;
 		else
 			if w = '1' then
+				p <= '0';
 				next_state <= even;
 			else
+				p <= '1';
 				next_state <= odd;
 			end if;
-		end if;
-	end process;
-
-	process (current_state)
-	begin
-		if current_state = even then
-			p <= '0';
-		else
-			p <= '1';
 		end if;
 	end process;
 end architecture rtl;
