@@ -1,0 +1,122 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{minted} % Allows to put our code :)
+\usepackage{graphics} % Allows to put images :)
+\usepackage[usenames, dvipsnames]{color} % Allows to have color :)
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{
+\normalfont \normalsize
+\textit{In The Name of God} \\
+\textsc{Computer Engineering Department of Amirkabir University of Technology} \\ [25pt]
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge FPGA Homework - 3 \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Parham Alvani (9231058)}
+
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle
+
+%------- P5
+
+\section{Problem 5}
+\center\includegraphics[]{p5.png}\\
+\inputminted{vhdl}{src/p5/parity-generator.vhd}
+\inputminted{vhdl}{src/p5/shift-register.vhd}
+\inputminted{vhdl}{src/p5/p5_t.vhd}
+\inputminted{vhdl}{src/p5/p5.vhd}
+
+%------- P6
+
+\section{Problem 6}
+\inputminted{vhdl}{src/p6/p6-2.vhd}
+\inputminted{vhdl}{src/p6/p6-3.vhd}
+
+%------- P7
+
+\section{Problem 7}
+
+%------- P8
+
+\section{Problem 8}
+\inputminted{vhdl}{src/p8/p8.vhd}
+\inputminted{vhdl}{src/p8/p8_t.vhd}
+
+%------- P9
+
+\section{Problem 9}
+\inputminted{vhdl}{src/p9/p9.vhd}
+
+%------- P10
+
+\section{Problem 10}
+\inputminted{vhdl}{src/p10/p10.vhd}
+
+%------- P11
+
+\section{Problem 11}
+\inputminted{vhdl}{src/p11/p11-in.vhd}
+\inputminted{vhdl}{src/p11/p11-out.vhd}
+
+%------- P12
+
+\section{Problem 12}
+\center\includegraphics[]{p12.png}\\
+\inputminted{vhdl}{src/p12/p12.vhd}
+\inputminted{vhdl}{src/p12/p12_t.vhd}
+
+\end{document}
