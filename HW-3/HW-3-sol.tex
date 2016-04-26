@@ -89,6 +89,10 @@
 %------- P7
 
 \section{Problem 7}
+\par Mealy machine outputs are not synchronous with clock, if we
+can synchronous them with clock we can use it's output better with
+our sequential logic. One way is to put some register after our output
+generator combinational circuit.
 
 %------- P8
 
@@ -115,6 +119,8 @@
 %------- P12
 
 \section{Problem 12}
+\par In this problem I prefer to use one-hot coding because its good on FPGA
+and do not create redundant states and safer than other methods.
 \center\includegraphics[]{p12.png}
 \inputminted{vhdl}{src/p12/p12.vhd}
 \inputminted{vhdl}{src/p12/p12_t.vhd}
