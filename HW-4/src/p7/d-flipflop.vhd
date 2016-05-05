@@ -21,7 +21,7 @@ begin
 		if clk = '1' and clk'event then
 			if reset = '1' then
 				b <= '0';
-			elsif preset <= '1' then
+			elsif preset = '1' then
 				b <= '1';
 			else
 				b <= d;
