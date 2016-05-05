@@ -5,7 +5,7 @@
 -- Module Name:   p7.vhd
 --------------------------------------------------------------------------------
 library IEEE;
-use IEEE.std_logic_1164.all
+use IEEE.std_logic_1164.all;
 
 entity p7 is
 end entity;
@@ -19,14 +19,13 @@ architecture rtl of p7 is
 
 	for all:ring_counter use entity work.ring_counter;
 
-	signal clk, start : std_logic;
+	signal clk : std_logic := '0';
+	signal start : std_logic := '1';
 	signal Q : std_logic_vector(3 downto 0);
 begin
-	clk <= 0;
 	clk <= not clk after 50 ns;
 
-	start <= 1;
-	start <= '0' after 100 ns;
+	start <= '0' after 75 ns;
 
 	m:ring_counter port map (clk, start, Q);
 end architecture;
