@@ -22,12 +22,12 @@ architecture rtl of ring_counter is
 
 	for all:d_flipflop use entity work.d_flipflop;
 
-	signal q : std_logic_vector (N - 1 downto 0);
-	signal qbar : std_logic_vector (N - 1 downto 0);
+	signal b : std_logic_vector (N - 1 downto 0);
+	signal bbar : std_logic_vector (N - 1 downto 0);
 begin
-	dff:d_flipflop port map (clk, '0', start, q(N - 1), q(0), qbar(0));
-	for I in 1 to N - 1 generate
-		dffs:d_flipflop port map (clk, start, '0', q(I - 1), q(I), qbar(I));
+	dff:d_flipflop port map (clk, '0', start, b(N - 1), b(0), bbar(0));
+	dffsg: for I in 1 to N - 1 generate
+		dffs:d_flipflop port map (clk, start, '0', b(I - 1), b(I), bbar(I));
 	end generate;
-	Q <= q;
+	Q <= b;
 end architecture;
