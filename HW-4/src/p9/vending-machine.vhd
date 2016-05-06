@@ -29,11 +29,11 @@ begin
 		if coin_in = '1' then
 			coin_return <= '0';
 			if coin_in_1 = '1' and coin_in_10 = '0' and coin_in_100 = '0' then
-				coin_in_total = coin_in_total + "00000001";
+				coin_in_total <= coin_in_total + "00000001";
 			elsif coin_in_1 = '0' and coin_in_10 = '1' and coin_in_100 = '0' then
-				coin_in_total = coin_in_total + "00001010";
+				coin_in_total <= coin_in_total + "00001010";
 			elsif coin_in_1 = '0' and coin_in_10 = '0' and coin_in_100 = '1' then
-				coin_in_total = coin_in_total + "01100100";
+				coin_in_total <= coin_in_total + "01100100";
 			end if;
 		end if;
 	end process;
