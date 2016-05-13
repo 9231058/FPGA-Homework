@@ -6,6 +6,7 @@
 --------------------------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
+use IEEE.numberic_std.all;
 
 entity FSM is
 	port (start_state : in std_logic_vector(3 downto 0);
@@ -53,5 +54,49 @@ begin
 		else
 		case current_state is
 			when S0 => end_state <= "0000";
+			when S1 => end_state <= "0001";
+			when S2 => end_state <= "0010";
+			when S3 => end_state <= "0011";
+			when S4 => end_state <= "0100";
+			when S5 => end_state <= "0101";
+			when S6 => end_state <= "0110";
+			when S7 => end_state <= "0111";
+			when S8 => end_state <= "1000";
+			when S9 => end_state <= "1001";
+			when others => end_state <= "0000";
+	end process;
+
+	process(current_state)
+	begin
+		if index = "100000" then
+			next_state <= current_state;
+		else
+			case current_state is
+				when S0 =>
+					if str(to_integer(index)) = '1' then
+						next_state <= S5;
+					else
+						next_state <= S1;
+					end if;
+				when S1 =>
+					if str(to_integer(index)) = '1' then
+						next_state <= S2;
+					else
+						next_state <= S7;
+					end if;
+				when S2 =>
+					if str(to_integer(index)) = '1' then
+						next_state <= S8;
+					else
+						next_state <= S3;
+					end if;
+				when S3 =>
+					if str(to_integer(index)) = '1' then
+						next_state <= S0;
+					else
+						next_state <= S7;
+					end if;
+			end case;
+			index <= index + "000001";
 	end process;
 end architecture;
