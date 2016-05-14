@@ -7,6 +7,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+use IEEE.std_logic_unsigned.all;
 
 entity FSM is
 	port (start_state : in std_logic_vector(3 downto 0);
@@ -74,61 +75,61 @@ begin
 		else
 			case current_state is
 				when S0 =>
-					if str(to_integer(index)) = '1' then
+					if str(to_integer(unsigned(index))) = '1' then
 						next_state <= S5;
 					else
 						next_state <= S1;
 					end if;
 				when S1 =>
-					if str(to_integer(index)) = '1' then
+					if str(to_integer(unsigned(index))) = '1' then
 						next_state <= S2;
 					else
 						next_state <= S7;
 					end if;
 				when S2 =>
-					if str(to_integer(index)) = '1' then
+					if str(to_integer(unsigned(index))) = '1' then
 						next_state <= S8;
 					else
 						next_state <= S3;
 					end if;
 				when S3 =>
-					if str(to_integer(index)) = '1' then
+					if str(to_integer(unsigned(index))) = '1' then
 						next_state <= S0;
 					else
 						next_state <= S7;
 					end if;
 				when S4 =>
-					if str(to_integer(index)) = '1' then
+					if str(to_integer(unsigned(index))) = '1' then
 						next_state <= S4;
 					else
 						next_state <= S9;
 					end if;
 				when S5 =>
-					if str(to_integer(index)) = '1' then
+					if str(to_integer(unsigned(index))) = '1' then
 						next_state <= S0;
 					else
 						next_state <= S6;
 					end if;
 				when S6 =>
-					if str(to_integer(index)) = '1' then
+					if str(to_integer(unsigned(index))) = '1' then
 						next_state <= S1;
 					else
 						next_state <= S7;
 					end if;
 				when S7 =>
-					if str(to_integer(index)) = '1' then
+					if str(to_integer(unsigned(index))) = '1' then
 						next_state <= S9;
 					else
 						next_state <= S2;
 					end if;
 				when S8 =>
-					if str(to_integer(index)) = '1' then
+					if str(to_integer(unsigned(index))) = '1' then
 						next_state <= S4;
 					else
 						next_state <= S3;
 					end if;
 				when S9 =>
-					if str(to_integer(index)) = '1' then
+					if str(to_integer(unsigned(index))) = '1' then
 						next_state <= S3;
 					else
 						next_state <= S8;
@@ -137,5 +138,6 @@ begin
 					next_state <= S0;
 			end case;
 			index <= index + "000001";
+		end if;
 	end process;
 end architecture;
