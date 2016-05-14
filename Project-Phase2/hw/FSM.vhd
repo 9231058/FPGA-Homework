@@ -51,7 +51,7 @@ begin
 	begin
 		if index = "100000" then
 			done <= '1';
-		else
+		end if;
 		case current_state is
 			when S0 => end_state <= "0000";
 			when S1 => end_state <= "0001";
@@ -64,6 +64,7 @@ begin
 			when S8 => end_state <= "1000";
 			when S9 => end_state <= "1001";
 			when others => end_state <= "0000";
+		end case;
 	end process;
 
 	process(current_state)
