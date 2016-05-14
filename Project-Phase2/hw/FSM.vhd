@@ -6,7 +6,7 @@
 --------------------------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
-use IEEE.numberic_std.all;
+use IEEE.numeric_std.all;
 
 entity FSM is
 	port (start_state : in std_logic_vector(3 downto 0);
