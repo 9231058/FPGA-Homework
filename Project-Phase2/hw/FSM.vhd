@@ -96,6 +96,44 @@ begin
 					else
 						next_state <= S7;
 					end if;
+				when S4 =>
+					if str(to_integer(index)) = '1' then
+						next_state <= S4;
+					else
+						next_state <= S9;
+					end if;
+				when S5 =>
+					if str(to_integer(index)) = '1' then
+						next_state <= S0;
+					else
+						next_state <= S6;
+					end if;
+				when S6 =>
+					if str(to_integer(index)) = '1' then
+						next_state <= S1;
+					else
+						next_state <= S7;
+					end if;
+				when S7 =>
+					if str(to_integer(index)) = '1' then
+						next_state <= S9;
+					else
+						next_state <= S2;
+					end if;
+				when S8 =>
+					if str(to_integer(index)) = '1' then
+						next_state <= S4;
+					else
+						next_state <= S3;
+					end if;
+				when S9 =>
+					if str(to_integer(index)) = '1' then
+						next_state <= S3;
+					else
+						next_state <= S8;
+					end if;
+				when others =>
+					next_state <= S0;
 			end case;
 			index <= index + "000001";
 	end process;
