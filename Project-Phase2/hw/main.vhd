@@ -66,14 +66,25 @@ architecture structural of main is
 		     	gpio_rtl_tri_o : out STD_LOGIC_VECTOR (31 downto 0));
 	end component;
 
-	signal gpio_rtl_io : std_logic_vector (31 downto 0)
-	signal gpio_rtl_o : std_logic_vector (31 downto 0)
+	signal gpio_rtl_io : std_logic_vector (31 downto 0);
+	signal gpio_rtl_o : std_logic_vector (31 downto 0);
+	
+	signal start_state, end_state : std_logic_vector (3 downto 0);
+	signal str : std_logic_vector (31 downto 0);
+	signal enable : std_logic;
+	signal done : std_logic;
 begin
+	start_state <= gpio_rtl_io (3 downto 0);
+	gpio_rtl_io (8 downto 5) <= end_state;
+	str <= gpio_rtl_o;
+	enable <= gpio_rtl_io (4);
+	gpio_rtl_io (9) <= done;
+	
 	FSM_i: component FSM
-		port map (gpio_rtl_io (0 to 3), gpio_rtl_io(5 to 8), gpio_rtl_o, gpio_rtl_io(4), FSM_clk, gpio_rtl_io(9));
+		port map (start_state, end_state, str, enable, FSM_clk, done);
 	base_zynq_design_wrapper_i: component base_zynq_design_wrapper
-		port map (DDR_ba, DDR_cas_n, DDR_ck_n, DDR_ck_p, DDR_cke, DDR_cs_n,
-			DDR_dm, DDR_dq, DDR_dqs_n, DDR_dqs_p, DDR_odt, DDR_odt, DDR_ras_n,
+		port map (DDR_addr, DDR_ba, DDR_cas_n, DDR_ck_n, DDR_ck_p, DDR_cke, DDR_cs_n,
+			DDR_dm, DDR_dq, DDR_dqs_n, DDR_dqs_p, DDR_odt, DDR_ras_n,
 			DDR_reset_n, DDR_we_n, FIXED_IO_ddr_vrn, FIXED_IO_ddr_vrp, FIXED_IO_mio,
-			FIXED_IO_ps_clk, FIXED_IO_ps_prob, FIXED_IO_ps_srstb, gpio_rtl_io, gpio_rtl_o);
+			FIXED_IO_ps_clk, FIXED_IO_ps_porb, FIXED_IO_ps_srstb, gpio_rtl_io, gpio_rtl_o);
 end architecture;
