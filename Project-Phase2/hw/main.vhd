@@ -62,23 +62,25 @@ architecture structural of main is
 		     	FIXED_IO_ps_clk : inout STD_LOGIC;
 		     	FIXED_IO_ps_porb : inout STD_LOGIC;
 		     	FIXED_IO_ps_srstb : inout STD_LOGIC;
-		     	gpio_rtl_0_tri_io : inout STD_LOGIC_VECTOR (9 downto 0);
-		     	gpio_rtl_tri_o : out STD_LOGIC_VECTOR (31 downto 0));
+		     	gpio_rtl_0 : out STD_LOGIC_VECTOR ( 31 downto 0 );
+		     	gpio_rtl_1_i : in STD_LOGIC_VECTOR ( 9 downto 0 );
+		     	gpio_rtl_1_o : out STD_LOGIC_VECTOR ( 9 downto 0 ));
 	end component;
 
-	signal gpio_rtl_io : std_logic_vector (9 downto 0);
-	signal gpio_rtl_o : std_logic_vector (31 downto 0);
+	signal gpio_rtl_1_i : std_logic_vector (9 downto 0);
+	signal gpio_rtl_1_o : std_logic_vector (9 downto 0);
+	signal gpio_rtl_0 : std_logic_vector (31 downto 0);
 	
 	signal start_state, end_state : std_logic_vector (3 downto 0);
 	signal str : std_logic_vector (31 downto 0);
 	signal enable : std_logic;
 	signal done : std_logic;
 begin
-	start_state <= gpio_rtl_io (3 downto 0);
-	gpio_rtl_io (8 downto 5) <= end_state;
-	str <= gpio_rtl_o;
-	enable <= gpio_rtl_io (4);
-	gpio_rtl_io (9) <= done;
+	start_state <= gpio_rtl_1_o (3 downto 0);
+	gpio_rtl_1_i (8 downto 5) <= end_state;
+	str <= gpio_rtl_0;
+	enable <= gpio_rtl_1_o (4);
+	gpio_rtl_1_i (9) <= done;
 	
 	FSM_i: component FSM
 		port map (start_state, end_state, str, enable, FSM_clk, done);
@@ -86,5 +88,5 @@ begin
 		port map (DDR_addr, DDR_ba, DDR_cas_n, DDR_ck_n, DDR_ck_p, DDR_cke, DDR_cs_n,
 			DDR_dm, DDR_dq, DDR_dqs_n, DDR_dqs_p, DDR_odt, DDR_ras_n,
 			DDR_reset_n, DDR_we_n, FIXED_IO_ddr_vrn, FIXED_IO_ddr_vrp, FIXED_IO_mio,
-			FIXED_IO_ps_clk, FIXED_IO_ps_porb, FIXED_IO_ps_srstb, gpio_rtl_io, gpio_rtl_o);
+			FIXED_IO_ps_clk, FIXED_IO_ps_porb, FIXED_IO_ps_srstb, gpio_rtl_0, gpio_rtl_1_i, gpio_rtl_1_o);
 end architecture;
