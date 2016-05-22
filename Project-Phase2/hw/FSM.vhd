@@ -20,14 +20,14 @@ end entity;
 architecture rtl of FSM is
 	type state is (S0, S1, S2, S3, S4, S5, S6, S7, S8, S9);
 	signal current_state, next_state : state;
-	signal index : std_logic_vector(5 downto 0);
+	signal current_index, next_index : std_logic_vector(5 downto 0);
 	signal str_buff : std_logic_vector(31 downto 0);
 begin
 	process(clk)
 	begin
 		if clk'event and clk = '1' then
 			if enable = '1' then
-				index <= "000000";
+				current_index <= "000000";
 				str_buff <= str;
 				case start_state is
 					when "0000" => current_state <= S0;
@@ -44,6 +44,7 @@ begin
 				end case;
 			else
 				current_state <= next_state;
+				current_index <= next_index;
 			end if;
 		end if;
 	end process;
@@ -70,66 +71,66 @@ begin
 
 	process(current_state)
 	begin
-		if index = "100000" then
+		if current_index = "100000" then
 			next_state <= current_state;
 		else
 			case current_state is
 				when S0 =>
-					if str(to_integer(unsigned(index))) = '1' then
+					if str(to_integer(unsigned(current_index))) = '1' then
 						next_state <= S5;
 					else
 						next_state <= S1;
 					end if;
 				when S1 =>
-					if str(to_integer(unsigned(index))) = '1' then
+					if str(to_integer(unsigned(current_index))) = '1' then
 						next_state <= S2;
 					else
 						next_state <= S7;
 					end if;
 				when S2 =>
-					if str(to_integer(unsigned(index))) = '1' then
+					if str(to_integer(unsigned(current_index))) = '1' then
 						next_state <= S8;
 					else
 						next_state <= S3;
 					end if;
 				when S3 =>
-					if str(to_integer(unsigned(index))) = '1' then
+					if str(to_integer(unsigned(current_index))) = '1' then
 						next_state <= S0;
 					else
 						next_state <= S7;
 					end if;
 				when S4 =>
-					if str(to_integer(unsigned(index))) = '1' then
+					if str(to_integer(unsigned(current_index))) = '1' then
 						next_state <= S4;
 					else
 						next_state <= S9;
 					end if;
 				when S5 =>
-					if str(to_integer(unsigned(index))) = '1' then
+					if str(to_integer(unsigned(current_index))) = '1' then
 						next_state <= S0;
 					else
 						next_state <= S6;
 					end if;
 				when S6 =>
-					if str(to_integer(unsigned(index))) = '1' then
+					if str(to_integer(unsigned(current_index))) = '1' then
 						next_state <= S1;
 					else
 						next_state <= S7;
 					end if;
 				when S7 =>
-					if str(to_integer(unsigned(index))) = '1' then
+					if str(to_integer(unsigned(current_index))) = '1' then
 						next_state <= S9;
 					else
 						next_state <= S2;
 					end if;
 				when S8 =>
-					if str(to_integer(unsigned(index))) = '1' then
+					if str(to_integer(unsigned(current_index))) = '1' then
 						next_state <= S4;
 					else
 						next_state <= S3;
 					end if;
 				when S9 =>
-					if str(to_integer(unsigned(index))) = '1' then
+					if str(to_integer(unsigned(current_index))) = '1' then
 						next_state <= S3;
 					else
 						next_state <= S8;
@@ -137,7 +138,7 @@ begin
 				when others =>
 					next_state <= S0;
 			end case;
-			index <= index + "000001";
+			next_index <= current_index + "000001";
 		end if;
 	end process;
 end architecture;
