@@ -53,6 +53,8 @@ begin
 	begin
 		if current_index = "100000" then
 			done <= '1';
+		else
+			done <= '1';
 		end if;
 		case current_state is
 			when S0 => end_state <= "0000";
@@ -73,6 +75,7 @@ begin
 	begin
 		if current_index = "100000" then
 			next_state <= current_state;
+			next_index <= "000000";
 		else
 			case current_state is
 				when S0 =>
