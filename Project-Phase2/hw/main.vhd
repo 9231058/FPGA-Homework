@@ -62,11 +62,11 @@ architecture structural of main is
 		     	FIXED_IO_ps_clk : inout STD_LOGIC;
 		     	FIXED_IO_ps_porb : inout STD_LOGIC;
 		     	FIXED_IO_ps_srstb : inout STD_LOGIC;
-		     	gpio_rtl_0_tri_io : inout STD_LOGIC_VECTOR (31 downto 0);
+		     	gpio_rtl_0_tri_io : inout STD_LOGIC_VECTOR (9 downto 0);
 		     	gpio_rtl_tri_o : out STD_LOGIC_VECTOR (31 downto 0));
 	end component;
 
-	signal gpio_rtl_io : std_logic_vector (31 downto 0);
+	signal gpio_rtl_io : std_logic_vector (9 downto 0);
 	signal gpio_rtl_o : std_logic_vector (31 downto 0);
 	
 	signal start_state, end_state : std_logic_vector (3 downto 0);
