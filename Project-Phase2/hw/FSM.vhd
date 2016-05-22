@@ -51,7 +51,7 @@ begin
 
 	process(current_state)
 	begin
-		if index = "100000" then
+		if current_index = "100000" then
 			done <= '1';
 		end if;
 		case current_state is
