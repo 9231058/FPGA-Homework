@@ -9,9 +9,16 @@ use IEEE.std_logic_1164.all;
 
 entity main is
 	port ();
-end entity main;
+end entity;
 
 architecture structural of main is
+	component FSM is
+		port (start_state : in std_logic_vector(3 downto 0);
+			end_state : out std_logic_vector(3 downto 0);
+			str : in std_logic_vector(31 downto 0);
+			enable, clk : in std_logic;
+			done : out std_logic);
+	end component;
 	component base_zynq_design_wrapper
 		port (DDR_addr : inout STD_LOGIC_VECTOR (14 downto 0);
 			DDR_ba : inout STD_LOGIC_VECTOR (2 downto 0);
