@@ -19,13 +19,10 @@ architecture rtl of main_t is
 	signal clk, a, b : std_logic := '0';
 	signal status : std_logic_vector (3 downto 0);
 begin
-	clk <= not clk after 50 ns;
+	clk <= not clk after 25 ns;
 
-	a <= '1' after 250 ns;
-	b <= '1' after 300 ns;
-
-	a <= '0' after 400 ns;
-	b <= '0' after 450 ns;
+	a <= '1' after 250 ns, '0' after 400 ns;
+	b <= '1' after 300 ns, '0' after 450 ns;
 
 	m : main port map (clk, a, b, status);
 end architecture;
