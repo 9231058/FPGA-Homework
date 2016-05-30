@@ -39,13 +39,13 @@ begin
 					ext <= '0';
 				end if;
 			when S2 =>
-				if a = '1' then
+				if a = '0' then
 					next_state <= S3;
 				end if;
 				ent <= '0';
 				ext <= '0';
 			when S3 =>
-				if b = '1' then
+				if b = '0' then
 					next_state <= S0;
 					ent <= '0';
 					ext <= '0';
