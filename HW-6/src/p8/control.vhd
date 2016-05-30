@@ -48,7 +48,7 @@ begin
 				if b = '0' then
 					next_state <= S0;
 					ent <= '0';
-					ext <= '0';
+					ext <= '1';
 				end if;
 			when others =>
 				next_state <= S0;
