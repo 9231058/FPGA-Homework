@@ -8,8 +8,8 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity main is
-	port (clk, a, b : std_logic;
-	     output : std_logic_vector (3 downto 0));
+	port (clk, a, b : in std_logic;
+	     output : out std_logic_vector (3 downto 0));
 end entity;
 
 architecture rtl of main is
@@ -19,7 +19,7 @@ architecture rtl of main is
 	end component;
 
 	component control
-		port (ent, ext : out std_logic
+		port (ent, ext : out std_logic;
 			a, b : in std_logic;
 			clk : in std_logic);
 	end component;
