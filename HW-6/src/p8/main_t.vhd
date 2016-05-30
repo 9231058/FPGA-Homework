@@ -12,11 +12,11 @@ end entity;
 
 architecture rtl of main_t is
 	component main
-		port (clk, a, b : std_logic;
-		     output : std_logic_vector (3 downto 0));
+		port (clk, a, b : in std_logic;
+		     output : out std_logic_vector (3 downto 0));
 	end component;
 
-	signal clk, a, b : std_logic := 0;
+	signal clk, a, b : std_logic := '0';
 	signal status : std_logic_vector (3 downto 0);
 begin
 	clk <= not clk after 50 ns;
