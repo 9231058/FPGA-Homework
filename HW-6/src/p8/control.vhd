@@ -8,13 +8,13 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity control is
-	port (ent, ext : out std_logic
+	port (ent, ext : out std_logic;
 		a, b : in std_logic;
 		clk : in std_logic);
 end entity;
 
 architecture rtl of control is
-	type state in (S0, S1, S2, S3);
+	type state is (S0, S1, S2, S3);
 	signal current_state, next_state : state;
 begin
 	process (clk)
