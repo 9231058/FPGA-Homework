@@ -52,4 +52,4 @@ begin
             a(7 downto 4) when to_integer(unsigned(not_aligned_res)) < 10 else
             "XXXX";
 
-end struct;
+end architecture;
