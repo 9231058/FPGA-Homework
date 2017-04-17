@@ -28,6 +28,6 @@ begin
 
 	M: for I in 0 to 7 generate
 		ms: bcd_multiplier port map (a => a(I * 4 + 3 downto I * 4), b => b, r(7 downto 4) => c(I * 4 + 7 downto I * 4 + 4), r(3 downto 0) => sum(I * 4 + 3 downto I * 4));
-		as: bcd_adder port map ("0000" & sum(I * 4 + 3 downto I * 4), c(I * 4 + 3 downto I * 4), v(I * 4 + 3 downto I * 4), open);
+		as: bcd_adder port map (sum(I * 4 + 7 downto I * 4), c(I * 4 + 3 downto I * 4), v(I * 4 + 3 downto I * 4), open);
 	end generate M;
 end architecture;
