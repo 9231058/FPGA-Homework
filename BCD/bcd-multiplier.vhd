@@ -3,7 +3,7 @@ use IEEE.std_logic_1164.all;
 
 entity bcd_multiplier is
     port (a, b : in std_logic_vector (3 downto 0);
-	  	v : out std_logic_vector (7 downto 0));
+	  	r : out std_logic_vector (7 downto 0));
 end entity;
 
 architecture structeral of bcd_multiplier is
@@ -22,8 +22,16 @@ architecture structeral of bcd_multiplier is
 			s : out std_logic;
 			c : out std_logic);
 	end component;
+	
+	component binary_to_bcd is
+		port(
+		    binary: in std_logic_vector(7 downto 0);
+		    bcd: out std_logic_vector(7 downto 0)
+	 	   );
+	end component;
 
 	signal tmp : std_logic_vector (27 downto 0);
+	signal v : std_logic_vector (7 downto 0);
 begin
     V(0) <= tmp(0);
     V(1) <= tmp(1);
@@ -46,4 +54,6 @@ begin
     H0: halfadder port map(tmp(16), tmp(17), V(3), tmp(21));
 
     H1: halfadder port map(tmp(25), tmp(15), V(7), tmp(27));
+
+    btb: binary_to_bcd port map(v, r);
 end architecture;
