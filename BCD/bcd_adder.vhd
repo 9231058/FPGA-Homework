@@ -4,7 +4,7 @@ use IEEE.numeric_std.all;
 
 entity bcd_adder is
     port(
-            a: in std_logic_vector(7 downto 0);
+            a: in std_logic_vector(3 downto 0);
             b: in std_logic_vector(3 downto 0);
             res: out std_logic_vector(3 downto 0);
             cout: out std_logic_vector(3 downto 0)
@@ -37,9 +37,6 @@ begin
     shifting_adder: n_bit_adder generic map(4)
         port map(not_aligned_res, "0110", '0', forced_aligned_res, fully_fake_signal_1);
 
-    shifted_adder: n_bit_adder generic map(4)
-        port map(a(7 downto 4), "0001", '0', cout_plus_1, fully_fake_signal_2);
-
     res <= forced_aligned_res when to_integer(unsigned(not_aligned_res)) > 9 else
            forced_aligned_res when readable_cout = '1' else
            not_aligned_res when readable_cout = '0' else
@@ -48,8 +45,6 @@ begin
 
     cout <= cout_plus_1 when to_integer(unsigned(not_aligned_res)) > 9 else
             cout_plus_1 when readable_cout = '1' else
-            a(7 downto 4) when readable_cout = '0' else
-            a(7 downto 4) when to_integer(unsigned(not_aligned_res)) < 10 else
             "XXXX";
 
 end architecture;
